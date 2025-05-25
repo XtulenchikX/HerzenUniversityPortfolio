@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: #f8f9fa;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+
+    .page-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 4fr 1fr;
+      gap: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    header {
+      grid-column: 1 / -1;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+    }
+
+    .subtitle {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+
+    .disciplines-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid #eee;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .card p {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .main-activities-sidebar {
+      min-width: 280px; /* или 300px */
+    }
+
+    .activities-list {
+      list-style: none;
+      padding-left: 1rem;
+      margin: 0;
+    }
+
+    .activity-item a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: background-color 0.2s ease;
+      padding: 0.8rem;
+      margin: -0.8rem;
+      border-radius: 6px;
+    }
+
+    .activity-item a:hover {
+      background-color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .activity-title {
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      transition: color 0.2s ease;
+    }
+
+    .activity-item a:hover .activity-title {
+      color: #2980b9;
+    }
+
+    .activity-description {
+      color: #7f8c8d;
+      font-size: 0.85rem;
+    }
+
+    .main-activities-sidebar h3,
+    .main-activities-sidebar h4 {
+      margin-bottom: 1rem;
+    }
+
+    /* Футер */
+    .footer {
+      background-color: #ffffff;
+      border-top: 1px solid #e0e0e0;
+      padding: 2rem;
+      color: #2c3e50;
+      font-size: 0.95rem;
+    }
+
+    .footer-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .footer-card {
+      background: white;
+      flex: 1 1 200px;
+      padding: 1.5rem 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      color: #2c3e50;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      user-select: none;
+    }
+
+    .footer-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .footer-title {
+      text-align: center;
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+      font-weight: 600;
+      user-select: none;
+    }
+
+    .footer-bottom-text {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-size: 1rem; /* чуть крупнее */
+      color: #7f8c8d;
+      user-select: none;
+    }
+
+    .footer-text-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.6;
+      color: #7f8c8d;
+      margin-bottom: 1rem;
+    }
+
+    .two-cards-wrapper {
+      width: 640px; /* примерно ширина 2х карточек (300px + 300px + gap) */
+      margin: 0 auto 3.5rem auto; /* центрируем и добавляем снизу отступ */
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .small-card {
+      flex: 1 1 300px; /* карточки по 300px, растягиваются при необходимости */
+    }
+
+    .group-title {
+      grid-column: 1 / -1; /* Заставляет заголовок занимать всю ширину сетки */
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #2980b9;
+      border-bottom: 2px solid #2980b9;
+      padding-bottom: 0.25rem;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <main class="container">
+      <!-- Шапка -->
+      <header>
+        <h1>Портфолио студента</h1>
+        <p class="subtitle">Фамилия Имя Отчество Курс</p>
+      </header>
+
+      <!-- Левая колонка с дисциплинами -->
+      <div class="disciplines-grid">
+        <h3 class="group-title">Программирование на Python</h3>
+        <a href="" class="card">
+          <h2>Карточка</h2>
+          <p>Описание карточки</p>
+        </a>
+        <a href="" class="card">
+          <h2>Карточка</h2>
+          <p>Описание карточки</p>
+        </a>
+        <a href="" class="card">
+          <h2>Карточка</h2>
+          <p>Описание карточки</p>
+        </a>
+        <h3 class="group-title">Учебные дисциплины</h3>
+        <a href="" class="card">
+          <h2>Карточка</h2>
+          <p>Описание карточки</p>
+        </a>
+        <a href="" class="card">
+          <h2>Карточка</h2>
+          <p>Описание карточки</p>
+        </a>
+        <a href="" class="card">
+          <h2>Карточка</h2>
+          <p>Описание карточки</p>
+        </a>
+        <a href="" class="card">
+          <h2>Карточка</h2>
+          <p>Описание карточки</p>
+        </a>
+        <a href="" class="card">
+          <h2>Карточка</h2>
+          <p>Описание карточки</p>
+        </a>
+        <a href="" class="card">
+          <h2>Карточка</h2>
+          <p>Описание карточки</p>
+        </a>
+        <a href="" class="card">
+          <h2>Карточка</h2>
+          <p>Описание карточки</p>
+        </a>
+        <a href="" class="card">
+          <h2>Карточка</h2>
+          <p>Описание карточки</p>
+        </a>
+        <a href="" class="card">
+          <h2>Карточка</h2>
+          <p>Описание карточки</p>
+        </a>
+        <a href="" class="card">
+          <h2>Карточка</h2>
+          <p>Описание карточки</p>
+        </a>
+        <a href="" class="card">
+          <h2>Карточка</h2>
+          <p>Описание карточки</p>
+        </a>
+        <a href="" class="card">
+          <h2>Карточка</h2>
+          <p>Описание карточки</p>
+        </a>
+        <a href="" class="card">
+          <h2>Карточка</h2>
+          <p>Описание карточки</p>
+        </a>
+        <a href="" class="card">
+          <h2>Карточка</h2>
+          <p>Описание карточки</p>
+        </a>
+        <a href="" class="card">
+          <h2>Карточка</h2>
+          <p>Описание карточки</p>
+        </a>
+        <a href="" class="card">
+          <h2>Карточка</h2>
+          <p>Описание карточки</p>
+        </a>
+        <a href="" class="card">
+          <h2>Карточка</h2>
+          <p>Описание карточки</p>
+        </a>
+      </div>
+
+
+      <!-- Правая колонка с активнxостями -->
+      <div class="main-activities-sidebar">
+        <h3>Курсовые работы</h3>
+        <ul class="activities-list">
+          <li class="activity-item">
+            <a href="">
+              <div class="activity-title">Курсовая работа 1 курс</div>
+              <div class="activity-description">Тема курсовой работы</div>
+            </a>
+          </li>
+          <li class="activity-item">
+            <a href="">
+              <div class="activity-title">Курсовая работа 2 курс</div>
+              <div class="activity-description">Тема курсовой работы</div>
+            </a>
+          </li>
+          <li class="activity-item">
+            <a href="">
+              <div class="activity-title">Курсовая работа 1 курс</div>
+              <div class="activity-description">Тема курсовой работы</div>
+            </a>
+          </li>
+          <li class="activity-item">
+            <a href="">
+              <div class="activity-title">Курсовая работа 2 курс</div>
+              <div class="activity-description">Тема курсовой работы</div>
+            </a>
+          </li>
+        </ul>
+        <div style="height:1rem;"></div>
+        <h3>Практики</h3>
+        <ul class="activities-list">
+          <li class="activity-item">
+            <a href="">
+              <div class="activity-title">Курсовая работа 1 курс</div>
+              <div class="activity-description">Тема курсовой работы</div>
+            </a>
+          </li>
+          <li class="activity-item">
+            <a href="">
+              <div class="activity-title">Курсовая работа 2 курс</div>
+              <div class="activity-description">Тема курсовой работы</div>
+            </a>
+          </li>
+          <li class="activity-item">
+            <a href="">
+              <div class="activity-title">Курсовая работа 1 курс</div>
+              <div class="activity-description">Тема курсовой работы</div>
+            </a>
+          </li>
+          <li class="activity-item">
+            <a href="">
+              <div class="activity-title">Курсовая работа 2 курс</div>
+              <div class="activity-description">Тема курсовой работы</div>
+            </a>
+          </li>
+          <li class="activity-item">
+            <a href="">
+              <div class="activity-title">Курсовая работа 2 курс</div>
+              <div class="activity-description">Тема курсовой работы</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </main>
+    <div class="two-cards-wrapper">
+      <a href="#" class="card small-card">
+        <h2>Доп. Карточка 1</h2>
+        <p>Описание дополнительной карточки 1</p>
+      </a>
+      <a href="#" class="card small-card">
+        <h2>Доп. Карточка 2</h2>
+        <p>Описание дополнительной карточки 2</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <h3 class="footer-title">Информация об авторе</h3>
+    <div class="footer-text-content">
+      <p><strong>Контакты:</strong> mail@gmail.com | +7 (999) 999-99-99</p>
+      <p><strong>Учебное заведение:</strong> РГПУ им. А.И. Герцена</p>
+    </div>
+    <div class="footer-content">
+      <a href="" target="_blank" rel="noopener" class="footer-card">GitHub</a>
+      <a href="" target="_blank" rel="noopener" class="footer-card">Telegram</a>
+      <a href="" target="_blank" rel="noopener" class="footer-card">CurriculumVitae</a>
+    </div>
+    <div class="footer-bottom-text">Created By MaksTulenchik</div>
+  </footer>
+</body>
+</html>
