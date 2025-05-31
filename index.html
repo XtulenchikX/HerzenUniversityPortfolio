@@ -43,9 +43,65 @@
 
     header {
       grid-column: 1 / -1;
-      text-align: center;
+      display: grid;
+      grid-template-columns: 4fr 1fr;
+      gap: 3rem;
+      align-items: center;
       margin-bottom: 2rem;
+      text-align: left;
     }
+
+    .header-left {
+      text-align: center;
+    }
+
+    .header-right {
+      text-align: left;
+      flex-direction: column;
+    }
+
+    .position {
+      font-size: 1rem;
+      color: #7f8c8d;
+    }
+
+    .resume-button {
+      display: inline-block;
+      background-color: #2980b9;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.2s ease;
+    }
+
+    .resume-button:hover {
+      background-color: #1f5e8b;
+    }
+
+    .job-title {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      color: #2c3e50;
+    }
+
+    .btn-resume {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      background: #2980b9;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.2s ease;
+    }
+
+    .btn-resume:hover {
+      background: #2573a5;
+    }
+
 
     h1 {
       font-size: 2.5rem;
@@ -95,7 +151,7 @@
     }
 
     .main-activities-sidebar {
-      min-width: 280px; /* или 300px */
+      min-width: 280px;
     }
 
     .activities-list {
@@ -140,7 +196,6 @@
       margin-bottom: 1rem;
     }
 
-    /* Футер */
     .footer {
       background-color: #ffffff;
       border-top: 1px solid #e0e0e0;
@@ -160,7 +215,7 @@
 
     .footer-card {
       background: white;
-      flex: 1 1 200px;
+      min-width: 200px;
       padding: 1.5rem 2rem;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -192,7 +247,7 @@
     .footer-bottom-text {
       margin-top: 1.5rem;
       text-align: center;
-      font-size: 1rem; /* чуть крупнее */
+      font-size: 1rem;
       color: #7f8c8d;
       user-select: none;
     }
@@ -207,19 +262,19 @@
     }
 
     .two-cards-wrapper {
-      width: 640px; /* примерно ширина 2х карточек (300px + 300px + gap) */
-      margin: 0 auto 3.5rem auto; /* центрируем и добавляем снизу отступ */
+      width: 640px;
+      margin: 0 auto 3.5rem auto;
       display: flex;
       gap: 1.5rem;
       justify-content: center;
     }
 
     .small-card {
-      flex: 1 1 300px; /* карточки по 300px, растягиваются при необходимости */
+      flex: 1 1 300px;
     }
 
     .group-title {
-      grid-column: 1 / -1; /* Заставляет заголовок занимать всю ширину сетки */
+      grid-column: 1 / -1;
       font-size: 1.25rem;
       font-weight: 600;
       color: #2980b9;
@@ -227,196 +282,173 @@
       padding-bottom: 0.25rem;
     }
 
-
-
   </style>
 </head>
 <body>
   <div class="page-wrapper">
     <main class="container">
-      <!-- Шапка -->
       <header>
-        <h1>Портфолио студента</h1>
-        <p class="subtitle">Фамилия Имя Отчество Курс</p>
+        <div class="header-left">
+          <h1>Прикладное портфолио</h1>
+          <p class="subtitle">Стецук Максима Николаевича</p>
+          <p class="subtitle">ИВТ | 4 курс</p>
+        </div>
+        <div class="header-right">
+          <div style="height:3rem;"></div>
+          <h3>Work experience</h3>
+          <div style="height:0.5rem;"></div>
+          <span class="job-title">Now: iOS mobile QA | Yandex</span>
+          <a href="https://github.com/XtulenchikX/University_All_Courses_Task_Storage/blob/e793537d27e43e0f00704167337393d2dcd2614f/%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B5%20%D0%B4%D0%BE%D1%81%D1%82%D0%B8%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/My_CV.pdf" class="btn-resume" target="_blank" rel="noopener">Curriculum vitae</a>
+        </div>
       </header>
 
-      <!-- Левая колонка с дисциплинами -->
       <div class="disciplines-grid">
         <h3 class="group-title">Программирование на Python</h3>
-        <a href="" class="card">
-          <h2>Карточка</h2>
-          <p>Описание карточки</p>
+        <a href="https://github.com/XtulenchikX/University_All_Courses_Task_Storage/tree/main/2%20%D0%BA%D1%83%D1%80%D1%81/%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5" class="card">
+          <h2>2 курс</h2>
+          <p>Основы программирования</p>
+        </a>
+        <a href="https://github.com/XtulenchikX/University_All_Courses_Task_Storage/tree/main/3%20%D0%BA%D1%83%D1%80%D1%81/%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5" class="card">
+          <h2>3 курс</h2>
+          <p>Алгоритмы и модульность</p>
+        </a>
+        <a href="https://github.com/XtulenchikX/University_All_Courses_Task_Storage/tree/main/4%20%D0%BA%D1%83%D1%80%D1%81/%D0%9F%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5" class="card">
+          <h2>4 курс</h2>
+          <p>Микросервисы и их взаимодействие</p>
+        </a>
+        <h3 class="group-title">Прикладные дисциплины</h3>
+        <a href="https://github.com/XtulenchikX/University_All_Courses_Task_Storage/tree/main/3%20%D0%BA%D1%83%D1%80%D1%81/%D0%98%D0%A2%20%D0%B8%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B8" class="card">
+          <h2>ИТ и системы бизнес-аналитики</h2>
+          <p>Моделирование бизнес процессов</p>
+        </a>
+        <a href="https://github.com/XtulenchikX/University_All_Courses_Task_Storage/tree/main/2%20%D0%BA%D1%83%D1%80%D1%81/%D0%91%D0%B0%D0%B7%D1%8B%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85" class="card">
+          <h2>Базы данных</h2>
+          <p>Основы проектирования и работа с SQL</p>
+        </a>
+        <a href="https://github.com/XtulenchikX/University_All_Courses_Task_Storage/tree/main/3%20%D0%BA%D1%83%D1%80%D1%81/%D0%9F%D1%80%D0%B8%D0%BA%D0%BB%D0%B0%D0%B4%D0%BD%D1%8B%D0%B5%20%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D1%8B%D0%B5%20%D1%82%D0%B5%D1%85%D0%BD%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D0%B8" class="card">
+          <h2>Прикладные информационные технологии</h2>
+          <p>Погружение в основы DevOps</p>
+        </a>
+        <a href="https://github.com/XtulenchikX/University_All_Courses_Task_Storage/tree/main/2%20%D0%BA%D1%83%D1%80%D1%81/%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85" class="card">
+          <h2>Анализ данных</h2>
+          <p>Применение методов на практике</p>
+        </a>
+        <a href="https://github.com/XtulenchikX/University_All_Courses_Task_Storage/tree/main/3%20%D0%BA%D1%83%D1%80%D1%81/%D0%9C%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5%20%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D1%8B%20%D0%B3%D0%BB%D1%83%D0%B1%D0%BE%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F" class="card">
+          <h2>Математические основы глубокого обучения</h2>
+          <p>Сверточные нейронные сети</p>
+        </a>
+        <a href="https://github.com/XtulenchikX/University_All_Courses_Task_Storage/tree/main/3%20%D0%BA%D1%83%D1%80%D1%81/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B%20%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D1%8F" class="card">
+          <h2>Основы машинного обучения</h2>
+          <p>Математические модели</p>
+        </a>
+        <a href="https://github.com/XtulenchikX/University_All_Courses_Task_Storage/tree/main/4%20%D0%BA%D1%83%D1%80%D1%81/%D0%A3%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%BD%D1%8B%D0%BC%D0%B8%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B0%D0%BC%D0%B8" class="card">
+          <h2>Управление программными проектами</h2>
+          <p>Методология современных подходов</p>
+        </a>
+        <a href="https://github.com/XtulenchikX/University_All_Courses_Task_Storage/tree/main/2%20%D0%BA%D1%83%D1%80%D1%81/%D0%9A%D0%BE%D0%BC%D0%BF%D1%8C%D1%8E%D1%82%D0%B5%D1%80%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D1%83%D0%BC" class="card">
+          <h2>Компьютерный практикум</h2>
+          <p>Различные современные технологии</p>
         </a>
         <a href="" class="card">
-          <h2>Карточка</h2>
-          <p>Описание карточки</p>
-        </a>
-        <a href="" class="card">
-          <h2>Карточка</h2>
-          <p>Описание карточки</p>
-        </a>
-        <h3 class="group-title">Учебные дисциплины</h3>
-        <a href="" class="card">
-          <h2>Карточка</h2>
-          <p>Описание карточки</p>
-        </a>
-        <a href="" class="card">
-          <h2>Карточка</h2>
-          <p>Описание карточки</p>
-        </a>
-        <a href="" class="card">
-          <h2>Карточка</h2>
-          <p>Описание карточки</p>
-        </a>
-        <a href="" class="card">
-          <h2>Карточка</h2>
-          <p>Описание карточки</p>
-        </a>
-        <a href="" class="card">
-          <h2>Карточка</h2>
-          <p>Описание карточки</p>
-        </a>
-        <a href="" class="card">
-          <h2>Карточка</h2>
-          <p>Описание карточки</p>
-        </a>
-        <a href="" class="card">
-          <h2>Карточка</h2>
-          <p>Описание карточки</p>
-        </a>
-        <a href="" class="card">
-          <h2>Карточка</h2>
-          <p>Описание карточки</p>
-        </a>
-        <a href="" class="card">
-          <h2>Карточка</h2>
-          <p>Описание карточки</p>
-        </a>
-        <a href="" class="card">
-          <h2>Карточка</h2>
-          <p>Описание карточки</p>
-        </a>
-        <a href="" class="card">
-          <h2>Карточка</h2>
-          <p>Описание карточки</p>
-        </a>
-        <a href="" class="card">
-          <h2>Карточка</h2>
-          <p>Описание карточки</p>
-        </a>
-        <a href="" class="card">
-          <h2>Карточка</h2>
-          <p>Описание карточки</p>
-        </a>
-        <a href="" class="card">
-          <h2>Карточка</h2>
-          <p>Описание карточки</p>
-        </a>
-        <a href="" class="card">
-          <h2>Карточка</h2>
-          <p>Описание карточки</p>
-        </a>
-        <a href="" class="card">
-          <h2>Карточка</h2>
-          <p>Описание карточки</p>
-        </a>
-        <a href="" class="card">
-          <h2>Карточка</h2>
-          <p>Описание карточки</p>
+          <h2>Языки написания спецификаций</h2>
+          <p>Описание функционала с помощью UML</p>
         </a>
       </div>
 
-
-      <!-- Правая колонка с активнxостями -->
-      <div class="main-activities-sidebar">
-        <h3>Курсовые работы</h3>
-        <ul class="activities-list">
-          <li class="activity-item">
-            <a href="">
-              <div class="activity-title">Курсовая работа 1 курс</div>
-              <div class="activity-description">Тема курсовой работы</div>
-            </a>
-          </li>
-          <li class="activity-item">
-            <a href="">
-              <div class="activity-title">Курсовая работа 2 курс</div>
-              <div class="activity-description">Тема курсовой работы</div>
-            </a>
-          </li>
-          <li class="activity-item">
-            <a href="">
-              <div class="activity-title">Курсовая работа 1 курс</div>
-              <div class="activity-description">Тема курсовой работы</div>
-            </a>
-          </li>
-          <li class="activity-item">
-            <a href="">
-              <div class="activity-title">Курсовая работа 2 курс</div>
-              <div class="activity-description">Тема курсовой работы</div>
-            </a>
-          </li>
-        </ul>
-        <div style="height:1rem;"></div>
-        <h3>Практики</h3>
-        <ul class="activities-list">
-          <li class="activity-item">
-            <a href="">
-              <div class="activity-title">Курсовая работа 1 курс</div>
-              <div class="activity-description">Тема курсовой работы</div>
-            </a>
-          </li>
-          <li class="activity-item">
-            <a href="">
-              <div class="activity-title">Курсовая работа 2 курс</div>
-              <div class="activity-description">Тема курсовой работы</div>
-            </a>
-          </li>
-          <li class="activity-item">
-            <a href="">
-              <div class="activity-title">Курсовая работа 1 курс</div>
-              <div class="activity-description">Тема курсовой работы</div>
-            </a>
-          </li>
-          <li class="activity-item">
-            <a href="">
-              <div class="activity-title">Курсовая работа 2 курс</div>
-              <div class="activity-description">Тема курсовой работы</div>
-            </a>
-          </li>
-          <li class="activity-item">
-            <a href="">
-              <div class="activity-title">Курсовая работа 2 курс</div>
-              <div class="activity-description">Тема курсовой работы</div>
-            </a>
-          </li>
-        </ul>
+        <div class="main-activities-sidebar">
+          <ul class="activities-list">
+            <li class="activity-item">
+              <a href="https://xtulenchikx.github.io/TulenchikPortfolio.github.io/">
+                <div class="activity-title">Портфолио студента</div>
+                <div class="activity-description">Все работы за период обучения</div>
+              </a>
+            </li>
+          </ul>
+          <div style="height:1rem;"></div>
+          <h3>Курсовые работы</h3>
+          <ul class="activities-list">
+            <li class="activity-item">
+              <a href="https://github.com/XtulenchikX/University_All_Courses_Task_Storage/tree/main/1%20%D0%BA%D1%83%D1%80%D1%81/%D0%9A%D1%83%D1%80%D1%81%D0%BE%D0%B2%D0%B0%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0">
+                <div class="activity-title">Курсовая работа 1 курс</div>
+                <div class="activity-description">Компьютерное моделирование колебательных процессов</div>
+              </a>
+            </li>
+            <li class="activity-item">
+              <a href="https://github.com/XtulenchikX/University_All_Courses_Task_Storage/tree/main/2%20%D0%BA%D1%83%D1%80%D1%81/%D0%9A%D1%83%D1%80%D1%81%D0%BE%D0%B2%D0%B0%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0">
+                <div class="activity-title">Курсовая работа 2 курс</div>
+                <div class="activity-description">Компьютерное моделирование древовидных структур</div>
+              </a>
+            </li>
+            <li class="activity-item">
+              <a href="https://github.com/XtulenchikX/University_All_Courses_Task_Storage/tree/main/3%20%D0%BA%D1%83%D1%80%D1%81/%D0%9A%D1%83%D1%80%D1%81%D0%BE%D0%B2%D0%B0%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0">
+                <div class="activity-title">Курсовая работа 3 курс</div>
+                <div class="activity-description">Программная реализация корреляционного анализа обработки больших данных</div>
+              </a>
+            </li>
+            <li class="activity-item">
+              <a href="https://github.com/XtulenchikX/University_All_Courses_Task_Storage/tree/main/4%20%D0%BA%D1%83%D1%80%D1%81/%D0%9A%D1%83%D1%80%D1%81%D0%BE%D0%B2%D0%B0%D1%8F%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0">
+                <div class="activity-title">Курсовая работа 4 курс</div>
+                <div class="activity-description">Проектирование и разработка веб-портфолио по дисциплине "Программирование"</div>
+              </a>
+            </li>
+          </ul>
+          <div style="height:1rem;"></div>
+          <h3>Личные достижения</h3>
+          <ul class="activities-list">
+            <li class="activity-item">
+              <a href="https://github.com/XtulenchikX/University_All_Courses_Task_Storage/blob/main/%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B5%20%D0%B4%D0%BE%D1%81%D1%82%D0%B8%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/%D0%A1%D0%B5%D1%80%D1%82%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%D1%8B/README.md">
+                <div class="activity-title">Сертификаты</div>
+                <div class="activity-description">Прохождение дополнительных курсов</div>
+              </a>
+            </li>
+            <li class="activity-item">
+              <a href="https://github.com/XtulenchikX/University_All_Courses_Task_Storage/blob/main/%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B5%20%D0%B4%D0%BE%D1%81%D1%82%D0%B8%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/%D0%94%D0%B8%D0%BF%D0%BB%D0%BE%D0%BC%D1%8B%20%D0%B8%20%D0%B3%D1%80%D0%B0%D0%BC%D0%BE%D1%82%D1%8B/README.md">
+                <div class="activity-title">Дипломы и грамоты</div>
+                <div class="activity-description">Участие в мероприятиях</div>
+              </a>
+            </li>
+            <li class="activity-item">
+              <a href="https://elibrary.ru/author_items.asp?orgsid=976">
+                <div class="activity-title">Публикации</div>
+                <div class="activity-description">Научные статьи и работы</div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </main>
+      <div class="two-cards-wrapper">
+        <a href="https://github.com/XtulenchikX/practiceMay2025" class="card small-card">
+          <h2>Преддипломная практика</h2>
+          <p>Материалы к дипломной работе</p>
+        </a>
+        <a href="https://github.com/XtulenchikX/LibraryAppProject" class="card small-card">
+          <h2>iOS-приложение для ЦБС</h2>
+          <p>Проект разработанного приложения</p>
+        </a>
       </div>
-    </main>
-    <div class="two-cards-wrapper">
-      <a href="#" class="card small-card">
-        <h2>Доп. Карточка 1</h2>
-        <p>Описание дополнительной карточки 1</p>
-      </a>
-      <a href="#" class="card small-card">
-        <h2>Доп. Карточка 2</h2>
-        <p>Описание дополнительной карточки 2</p>
-      </a>
     </div>
-  </div>
-
-  <!-- Футер -->
   <footer class="footer">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <h3 class="footer-title">Информация об авторе</h3>
     <div class="footer-text-content">
-      <p><strong>Контакты:</strong> mail@gmail.com | +7 (999) 999-99-99</p>
+      <p><strong>Контакты:</strong> stecukmaks13@gmail.com | +7 (911) ***-**-**</p>
       <p><strong>Учебное заведение:</strong> РГПУ им. А.И. Герцена</p>
     </div>
     <div class="footer-content">
-      <a href="" target="_blank" rel="noopener" class="footer-card">GitHub</a>
-      <a href="" target="_blank" rel="noopener" class="footer-card">Telegram</a>
-      <a href="" target="_blank" rel="noopener" class="footer-card">CurriculumVitae</a>
+      <a href="https://github.com/XtulenchikX" target="_blank" rel="noopener" class="footer-card">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <a href="https://t.me/XtulenchikX" target="_blank" rel="noopener" class="footer-card">
+        <i class="fab fa-telegram"></i> Telegram
+      </a>
+      <a href="https://vk.com/makstulenchik" target="_blank" rel="noopener" class="footer-card">
+        <i class="fab fa-vk"></i> VK
+      </a>
     </div>
-    <div class="footer-bottom-text">Created By MaksTulenchik</div>
+    <div class="footer-bottom-text">© MaksTulenchik, 2021-2025</div>
   </footer>
 </body>
 </html>
